@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Safari Clic !</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Safari Clic">
+<meta name="theme-color" content="#3b1f6b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ══════════ ACCUEIL ══════════ -->
+<section id="screen-home" class="screen active">
+  <div class="home-art">
+    <div class="home-sun"></div>
+    <div class="home-hills"></div>
+  </div>
+  <div class="home-content">
+    <h1 class="logo">SAFARI<br>CLIC&nbsp;!</h1>
+    <p class="tagline">Écoute… tourne-toi… et CLIC&nbsp;!</p>
+    <div class="biome-chip">📍 Afrique · Savane</div>
+    <div class="home-buttons">
+      <button id="btn-sortie" class="btn btn-big">📸 Sortie photo</button>
+      <button id="btn-carnet" class="btn btn-mid">📖 Mon carnet</button>
+    </div>
+  </div>
+  <div class="home-footer">
+    <span id="tampons-badge" class="chip">🐾 0 tampons</span>
+    <button id="btn-age" class="chip chip-btn">⚙️ âge</button>
+  </div>
+</section>
+
+<!-- ══════════ SORTIE PHOTO ══════════ -->
+<section id="screen-game" class="screen">
+  <canvas id="game-canvas"></canvas>
+  <div id="viewfinder" aria-hidden="true">
+    <i class="vf-c vf-tl"></i><i class="vf-c vf-tr"></i>
+    <i class="vf-c vf-bl"></i><i class="vf-c vf-br"></i>
+  </div>
+  <div id="hud-top">
+    <button id="btn-quit" class="btn-round" aria-label="Quitter">✕</button>
+    <div id="hud-counter" class="chip">📷 1/6</div>
+    <button id="btn-recenter" class="btn-round" aria-label="Recentrer">🧭</button>
+  </div>
+  <div id="hint-arrow" class="hidden">➤</div>
+  <div id="window-gauge"><div id="window-dot"></div></div>
+  <button id="btn-shutter" aria-label="Prendre la photo"><span></span></button>
+  <div id="flash"></div>
+  <div id="photo-toast" class="hidden"></div>
+  <div id="snap-preview" class="hidden"><img alt="photo"></div>
+</section>
+
+<!-- ══════════ DÉVELOPPEMENT ══════════ -->
+<section id="screen-develop" class="screen">
+  <h2 class="dev-title">🎞️ Développement des photos…</h2>
+  <div id="develop-strip"></div>
+  <div id="develop-total" class="hidden"></div>
+  <button id="btn-develop-done" class="btn btn-big hidden">Super !</button>
+</section>
+
+<!-- ══════════ CARNET ══════════ -->
+<section id="screen-carnet" class="screen">
+  <div class="carnet-head">
+    <button id="btn-carnet-back" class="btn-round">←</button>
+    <h2>📖 Mon carnet</h2>
+    <span class="carnet-count chip" id="carnet-count">0/4</span>
+  </div>
+  <div id="carnet-grid"></div>
+</section>
+
+<!-- ══════════ MODALES ══════════ -->
+<div id="modal-age" class="modal hidden">
+  <div class="modal-card">
+    <h2>Qui joue aujourd'hui ?</h2>
+    <p class="modal-sub">Réglage parent : adapte la douceur du jeu.</p>
+    <button class="btn btn-age" data-age="3-5">🐣 3 – 5 ans</button>
+    <button class="btn btn-age" data-age="6-8">🦓 6 – 8 ans</button>
+    <button class="btn btn-age" data-age="9-12">🦅 9 – 12 ans</button>
+  </div>
+</div>
+
+<div id="modal-gyro" class="modal hidden">
+  <div class="modal-card">
+    <h2>🧭 Prêt pour le safari ?</h2>
+    <p>Tiens ton téléphone devant toi comme un appareil photo, puis <b>tourne-toi</b> pour chercher les animaux&nbsp;!</p>
+    <p class="modal-sub">🎧 Avec un casque, c'est encore plus magique.</p>
+    <button id="btn-gyro-ok" class="btn btn-big">C'est parti !</button>
+    <button id="btn-gyro-skip" class="btn chip-btn">Jouer en glissant le doigt</button>
+  </div>
+</div>
+
+<div id="modal-quit" class="modal hidden">
+  <div class="modal-card">
+    <h2>Arrêter la sortie ?</h2>
+    <button id="btn-quit-yes" class="btn btn-mid">Oui, on rentre</button>
+    <button id="btn-quit-no" class="btn btn-big">Non, on continue !</button>
+  </div>
+</div>
+
+<div id="modal-fiche" class="modal hidden">
+  <div class="modal-card fiche-card">
+    <button id="btn-fiche-close" class="btn-round fiche-close">✕</button>
+    <div id="fiche-body"></div>
+  </div>
+</div>
+
+<script src="js/audio.js"></script>
+<script src="js/art.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
