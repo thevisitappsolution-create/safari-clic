@@ -580,6 +580,13 @@
   SC.Art = {
     FOV: FOV,
     project: project,
+    drawAnimal: function (ctx, species, t, mode, runPhase) {
+      var f = DRAW[species];
+      if (f) f(ctx, t, mode, runPhase);
+    },
+    animalLocalH: function (species) {
+      return DRAW[species] ? DRAW[species].localH : 100;
+    },
     buildDecor: buildDecor,
     render: render,
     resetParticles: resetParticles,
